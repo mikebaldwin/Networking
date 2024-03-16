@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension URLResponse {
+public extension URLResponse {
     @discardableResult
     func validate(statusCode: ClosedRange<Int> = 200...299) throws -> URLResponse {
         guard let httpResponse = self as? HTTPURLResponse else {

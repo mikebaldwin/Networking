@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum ServiceError: LocalizedError {
+public enum ServiceError: LocalizedError {
     case noResult
     case jsonDecodingFailed
     case dataDownloadFailed
@@ -16,7 +16,7 @@ enum ServiceError: LocalizedError {
     case invalidStatusCode(Int)
     case badResponse
     
-    var errorDescription: String? {
+    public var errorDescription: String? {
         switch self {
         case .noResult: return "No Result"
         case .jsonDecodingFailed: return "JSON decoding failed"

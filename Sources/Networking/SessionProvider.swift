@@ -7,8 +7,10 @@
 
 import Foundation
 
-struct SessionProvider {
-    func sendRequest<T>(
+public struct SessionProvider {
+    public init() { }
+    
+    public func sendRequest<T>(
         _ request: URLRequest,
         for decodable: T.Type
     ) async throws -> T where T: Decodable {

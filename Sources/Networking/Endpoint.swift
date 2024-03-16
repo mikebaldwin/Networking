@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct Endpoint {
-    var scheme: String
-    var host: String
-    var path: String
-    var method: HTTPMethod
-    var queryItems: [URLQueryItem]?
-    var request: URLRequest {
+public struct Endpoint {
+    public var scheme: String
+    public var host: String
+    public var path: String
+    public var method: HTTPMethod
+    public var queryItems: [URLQueryItem]?
+    public var request: URLRequest {
         var components = URLComponents()
         components.scheme = scheme
         components.host = host
@@ -30,7 +30,7 @@ struct Endpoint {
         return request
     }
     
-    init(
+    public init(
         scheme: String = "https",
         host: String = "pokeapi.co",
         path: String,
