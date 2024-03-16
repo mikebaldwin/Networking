@@ -32,14 +32,14 @@ public struct Endpoint {
     
     public init(
         scheme: String = "https",
-        host: String = "pokeapi.co",
+        host: String,
         path: String,
         method: HTTPMethod = .get,
         queryItems: [URLQueryItem]? = nil
     ) {
         self.scheme = scheme
         self.host = host
-        self.path = "/api/v2/\(path)"
+        self.path = path
         self.method = method
         self.queryItems = queryItems
     }
