@@ -7,13 +7,17 @@
 
 import Foundation
 
-public struct Endpoint {
-    public var scheme: String
-    public var host: String
-    public var path: String
-    public var method: HTTPMethod
-    public var queryItems: [URLQueryItem]?
-    public var request: URLRequest {
+public protocol Endpoint {
+    var scheme: String { get set }
+    var host: String { get set }
+    var path: String { get set }
+    var method: HTTPMethod { get set }
+    var queryItems: [URLQueryItem]? { get set }
+    var request: URLRequest { get }
+}
+
+public extension Endpoint {
+    var request: URLRequest {
         var components = URLComponents()
         components.scheme = scheme
         components.host = host
@@ -28,19 +32,5 @@ public struct Endpoint {
         request.httpMethod = method.rawValue
         
         return request
-    }
-    
-    public init(
-        scheme: String = "https",
-        host: String,
-        path: String,
-        method: HTTPMethod = .get,
-        queryItems: [URLQueryItem]? = nil
-    ) {
-        self.scheme = scheme
-        self.host = host
-        self.path = path
-        self.method = method
-        self.queryItems = queryItems
     }
 }
